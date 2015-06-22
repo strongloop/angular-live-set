@@ -1,0 +1,19 @@
+{
+  "author": "AngularUI Team",
+  "name": "angular-ui-utils",
+  "description": "AngularUI Utilities - Companion Suite for AngularJS",
+  "version": "0.2.3",
+  "homepage": "http://angular-ui.github.com",
+  "main": "./modules/utils.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": ">= 1.0.2"
+  },
+  "devDependencies": {
+    "jquery": ">=1.6",
+    "angular-mocks": "~1.4.1"
+  },
+  "resolutions": {
+    "angular-mocks": "~1.4.1"
+  }
+}

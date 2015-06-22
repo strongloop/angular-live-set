@@ -1,0 +1,22 @@
+<div ng-app="liveSetDemo" ng-controller="LiveSetCtrl">
+  <h1>LiveSet Demo</h1>
+  <ul>
+    <li ng-repeat="todo in todos">
+      {{todo.txt}}
+    </li>
+  </ul>
+
+</div>
+<script>
+var app = angular
+  .module('liveSetDemo', ['ls.LiveSet', 'ls.ChangeStream'])
+  .controller('LiveSetCtrl', ['$scope', 'LiveSet', 'createChangeStream', '$http',
+    function($scope, LiveSet, createChangeStream, $http) {
+      var url = 'http://localhost:4558/todos/subscription?_format=event-source';
+      var eventSource = new EventSource(url);
+      var changes = createChangeStream(eventSource);
+      var set = new LiveSet(changes);
+      $scope.todos = set.toLiveArray();
+      window.todoSet = set;
+    }]);
+</script>
