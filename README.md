@@ -1,4 +1,4 @@
-# Angular Live Set [![Build Status](https://travis-ci.org/strongloop/angular-live-set.svg?branch=master)](https://travis-ci.org/strongloop/angular-live-set)
+# Angular Live Set
 
 Display changes as they are made to a collection of objects.
 
