@@ -1,13 +1,12 @@
 {
-  "name": "angular-ui-utils",
-  "version": "0.2.3",
-  "description": "Swiss-Army-Knife of AngularJS tools (with no external dependencies!)",
-  "author": "https://github.com/angular-ui/ui-utils/graphs/contributors",
+  "name": "angular-live-set",
+  "version": "0.1.0",
+  "description": "Bind to a set of data that is always kept up to date",
+  "author": "Ritchie Martori",
   "license": "MIT License, http://www.opensource.org/licenses/MIT",
-  "homepage": "http://angular-ui.github.com",
+  "homepage": "http://docs.strongloop.com",
   "dependencies": {},
   "devDependencies": {
-    "angular-ui-publisher": "~1.1.3",
     "chai": "^3.0.0",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "~0.4.1",
@@ -17,7 +16,6 @@
     "grunt-contrib-jshint": "~0.5.4",
     "grunt-contrib-uglify": "~0.2.1",
     "grunt-contrib-watch": "~0.4.3",
-    "grunt-conventional-changelog": "~1.0.0",
     "grunt-karma": "^0.11.0",
     "grunt-ngmin": "0.0.3",
     "karma": "^0.12.36",
@@ -29,9 +27,9 @@
     "mocha": "^2.2.5"
   },
   "scripts": {},
-  "main": "./modules/utils.js",
+  "main": "./dist/live-set.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/angular-ui/ui-utils.git"
+    "url": "git://github.com:/strongloop/angular-live-set.git"
   }
 }

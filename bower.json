@@ -1,19 +1,16 @@
 {
-  "author": "AngularUI Team",
-  "name": "angular-ui-utils",
-  "description": "AngularUI Utilities - Companion Suite for AngularJS",
-  "version": "0.2.3",
-  "homepage": "http://angular-ui.github.com",
-  "main": "./modules/utils.js",
+  "author": "Ritchie Martori",
+  "name": "angular-live-set",
+  "description": "Bind to a set of data that is always kept up to date",
+  "version": "0.1.0",
+  "homepage": "http://docs.strongloop.com",
+  "main": "./modules/live-set.js",
   "license": "MIT",
   "dependencies": {
     "angular": ">= 1.0.2"
   },
   "devDependencies": {
     "jquery": ">=1.6",
-    "angular-mocks": "~1.4.1"
-  },
-  "resolutions": {
     "angular-mocks": "~1.4.1"
   }
 }
