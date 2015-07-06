@@ -1,0 +1,65 @@
+<div ng-app="liveSetDemo" ng-controller="LiveSetCtrl">
+  <h1>LiveSet Demo</h1>
+  <ul>
+    <li ng-repeat="todo in todos" ng-mouseleave="onMouseLeave(todo)" ng-mouseover="onMouseOver(todo)" ng-class="todo.hovered ? 'hover' : 'nh'">
+      <input type="checkbox" ng-model="todo.done">
+      <input type="text" ng-model="todo.txt">
+      <button ng-click="save(todo)">save</button>
+      <button ng-click="remove(todo)">remove</button>
+    </li>
+  </ul>
+  <input type="text" ng-model="newTodoText" />
+  <style>
+    li {height: 40px; margin-bottom: 10px;}
+    .hover {background: #e8e8e8;}
+  </style>
+</div>
+<script>
+var app = angular
+  .module('liveSetDemo', ['ls.LiveSet', 'ls.ChangeStream'])
+  .controller('LiveSetCtrl', ['$scope', 'LiveSet', 'createChangeStream', '$http',
+    function($scope, LiveSet, createChangeStream, $http) {
+      var todoUrl = 'http://localhost:4558/todos';
+      var url = 'http://localhost:4558/todos/subscription?_format=event-source';
+      var eventSource = new EventSource(url);
+      var changes = createChangeStream(eventSource);
+      var set;
+
+      $http.get(todoUrl).success(function(data) {
+        set = new LiveSet(data, changes);
+        $scope.todos = set.toLiveArray();
+      });
+
+      $scope.remove = function(todo) {
+        changes.write({target: todo.id, type: 'remove', optimistic: true});
+
+        $http.delete(todoUrl + '/' + todo.id);
+      };
+
+      $scope.save = function(todo) {
+        $scope.onTodoChanged(todo);
+      }
+
+      $scope.onMouseOver = function(todo) {
+        if(todo.hovered) return;
+        todo.hovered = true;
+        $scope.onTodoChanged(todo);
+      }
+
+      $scope.onMouseLeave = function(todo) {
+        todo.hovered = false;
+        $scope.onTodoChanged(todo);
+      }
+
+      $scope.onTodoChanged = function(todo) {
+        changes.write({
+          target: todo.id,
+          type: 'update',
+          optimistic: true,
+          data: todo
+        });
+
+        $http.put(todoUrl + '/' + todo.id, todo);
+      };
+    }]);
+</script>
