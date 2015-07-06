@@ -56,7 +56,7 @@ module.exports = function (grunt) {
     watch: {
       src: {
         files: ['modules/**/*.js', '!modules/**/test/*Spec.js', 'demo/**/*.js'],
-        tasks: ['karma:unit:run', 'dist:main', 'dist:demo', 'build:gh-pages']
+        tasks: ['karma:unit:run', 'dist:main', 'dist:demo']
       },
       test: {
         files: ['modules/**/test/*Spec.js'],
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
       },
       demo: {
         files: ['modules/**/demo/*'],
-        tasks: ['dist:demo', 'build:gh-pages']
+        tasks: ['dist:demo']
       },
       livereload: {
         files: ['demo/*'],

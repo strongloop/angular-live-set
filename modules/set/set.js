@@ -55,11 +55,13 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
         return i;
       }
     }
+
+    return -1;
   }
 
   LiveSet.prototype._applyChange = function(change) {
     var previous;
-    var index = change.target ? this.getIndexById(change.target) : undefined;
+    var index = change.target ? this.getIndexById(change.target) : null;
 
     if (change.optimistic) {
       this._handleOptimisticChange(change, index);
@@ -76,12 +78,14 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
         break;
       case 'remove':
       case 'delete':
-        this._data.splice(this.getIndexById(change.target), 1);
+        if(index !== -1) {
+          this._data.splice(index, 1);
+        }
         break;
     }
 
     if (!$rootScope.$$phase) $rootScope.$apply();
-  }
+  };
 
   LiveSet.prototype._handleOptimisticChange = function(change, index) {
     var duration = this.options.optimisticWindow;
@@ -107,7 +111,7 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
     var length = pending.length;
 
     for(i; i < length; i++) {
-      if(pending[i].target === target) {
+      if(pending[i] && pending[i].target === target) {
         clearTimeout(pending.splice(i, 1).timer);
       }
     }
@@ -121,7 +125,7 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
     var length = pending.length;
 
     for(i; i < length; i++) {
-      if(pending[i].target === target) {
+      if(pending[i] && pending[i].target === target) {
         previous = pending[i].data;
         this._applyChange({
           target: target,

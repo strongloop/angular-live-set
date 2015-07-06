@@ -65,7 +65,7 @@ describe('LiveSet', function () {
           target: test.data.id,
           data: test.data,
           type: 'update',
-          optimistic: '123'
+          optimistic: true
         });
       });
 

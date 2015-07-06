@@ -24,7 +24,6 @@ angular.module('ls.ChangeStream',[]).factory('createChangeStream', ['$rootScope'
 
         if(!str.ended) {
           try {
-            console.log(data);
             data = JSON.parse(data);
           } catch (e) {
             str.emit('error', e);
