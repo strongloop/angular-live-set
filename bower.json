@@ -4,7 +4,7 @@
   "description": "Bind to a set of data that is always kept up to date",
   "version": "0.1.0",
   "homepage": "http://docs.strongloop.com",
-  "main": "./modules/live-set.js",
+  "main": "./dist/live-set.js",
   "license": "MIT",
   "dependencies": {
     "angular": ">= 1.0.2"
