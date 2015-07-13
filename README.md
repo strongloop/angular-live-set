@@ -36,6 +36,8 @@ angular.module('myApp', ['ls.set'])
 
 A `LiveSet` applies a `ChangeStream`, or a continuous stream of changes, to an array of objects. The set itself is **read only** and can only be modified by sending a change through the change stream.
 
+**Note:** Updates to the `LiveSet` will trigger a `$rootScope.$apply()`.
+
 **data**
 
 An `Array` of initial data.

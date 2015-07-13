@@ -136,8 +136,7 @@ module.exports = function (grunt) {
         })
       }
     },
-    ngmin: moduleNames.reduce(ngMinModulesConfig, {}),
-    changelog: {options: {dest: 'CHANGELOG.md'}}
+    ngmin: moduleNames.reduce(ngMinModulesConfig, {})
   });
 
 };
