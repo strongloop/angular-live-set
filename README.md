@@ -2,6 +2,8 @@
 
 Display changes as they are made to a collection of objects.
 
+[**View the examples**](https://github.com/strongloop/angular-live-set-example)
+
 ## Requirements
 
  - AngularJS
