@@ -27,7 +27,7 @@ This will copy the `angular-live-set` files into a `bower_components` folder, al
 Add the module to your dependencies:
 
 ```javascript
-angular.module('myApp', ['ls.set'])
+angular.module('myApp', ['ls.LiveSet', 'ls.ChangeStream'])
 ```
 
 ## Docs
