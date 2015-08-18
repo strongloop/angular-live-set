@@ -26,7 +26,7 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
 
   LiveSet.prototype.toArray = function() {
     return this._data.slice();
-  }
+  };
 
   LiveSet.prototype.getIndexById = function(id) {
     var i = 0;
@@ -41,7 +41,7 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
     }
 
     return -1;
-  }
+  };
 
   LiveSet.prototype._applyChange = function(change) {
     var previous;
@@ -99,7 +99,7 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
         clearTimeout(pending.splice(i, 1).timer);
       }
     }
-  }
+  };
 
   LiveSet.prototype._revert = function(target) {
     var index = this.getIndexById(target);
@@ -118,11 +118,11 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
         });
       }
     }
-  }
+  };
 
   LiveSet.prototype.toLiveArray = function() {
     return this._data;
-  }
+  };
 
   return LiveSet;
 }]);

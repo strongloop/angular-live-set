@@ -1,32 +1,24 @@
-// Karma configuration
-// Generated on Fri Sep 27 2013 23:41:22 GMT+0200 (W. Europe Daylight Time)
-
 module.exports = function(config) {
   config.set({
+
+    plugins: ['karma-phantomjs-launcher', 'karma-mocha', 'karma-chai'],
+
+    customLaunchers: {
+      Chrome_without_security: {
+        base: 'Chrome',
+        flags: ['--disable-web-security']
+      },
+      PhantomJS_without_security: {
+        base: 'PhantomJS',
+        flags: ['--web-security=no']
+      }
+    },
 
     // base path, that will be used to resolve files and exclude
     basePath: '..',
 
-
     // frameworks to use
     frameworks: ['mocha', 'chai'],
-
-
-    // list of files / patterns to load in the browser
-    files: [
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'modules/*/*.js',
-      'modules/*/test/*.test.js'
-    ],
-
-
-    // list of files to exclude
-    exclude: [
-
-    ],
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
@@ -46,10 +38,6 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
-
-
     // Start these browsers, currently available:
     // - Chrome
     // - ChromeCanary
@@ -58,15 +46,13 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
-
+    browsers: ['PhantomJS_without_security'],
 
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
 
-
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };
