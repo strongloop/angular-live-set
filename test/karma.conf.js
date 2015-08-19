@@ -1,7 +1,11 @@
 module.exports = function(config) {
   config.set({
 
-    plugins: ['karma-phantomjs-launcher', 'karma-mocha', 'karma-chai'],
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-mocha',
+      'karma-chai'
+    ],
 
     customLaunchers: {
       Chrome_without_security: {
