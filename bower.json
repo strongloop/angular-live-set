@@ -10,7 +10,6 @@
     "angular": ">= 1.0.2"
   },
   "devDependencies": {
-    "jquery": ">=1.6",
     "angular-mocks": "~1.4.1"
   }
 }

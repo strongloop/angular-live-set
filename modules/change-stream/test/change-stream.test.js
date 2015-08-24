@@ -16,7 +16,7 @@ describe('createChangeStream', function () {
     var changes;
     var eventSource;
     beforeEach(function() {
-      var url = 'http://localhost:' + LB_PORT + '/todos/subscription?_format=event-stream';
+      var url = 'http://localhost:' + LB_PORT + '/todos/change-stream?_format=event-stream';
       eventSource = new EventSource(url);
       changes = createChangeStream(eventSource);
     });

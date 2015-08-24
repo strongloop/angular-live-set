@@ -13,3 +13,4 @@
 node_modules
 *xunit.xml
 bower_components
+cobertura-coverage.xml
