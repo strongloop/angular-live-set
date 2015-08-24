@@ -1,7 +1,12 @@
 module.exports = function(config) {
   config.set({
 
-    plugins: ['karma-phantomjs-launcher', 'karma-mocha', 'karma-chai'],
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-mocha',
+      'karma-chai',
+      'karma-coverage'
+    ],
 
     customLaunchers: {
       Chrome_without_security: {
@@ -22,8 +27,19 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: [process.env.CI ? 'coverage' : 'progress'],
 
+    preprocessors: {
+      'modules/**/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      // specify a common output directory
+      dir: '.',
+      reporters: [
+        { type: 'cobertura', subdir: '.', file: 'cobertura-coverage.xml' }
+      ]
+    },
 
     // web server port
     port: 9876,
@@ -35,7 +51,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // Start these browsers, currently available:
