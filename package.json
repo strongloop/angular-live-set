@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "Bind to a set of data that is always kept up to date",
   "author": "Ritchie Martori",
-  "license": "MIT License, http://www.opensource.org/licenses/MIT",
+  "license": {
+    "name": "Dual MIT/StrongLoop",
+    "url": "https://github.com/strongloop/angular-live-set/blob/master/LICENSE"
+  },
   "homepage": "http://docs.strongloop.com",
   "dependencies": {},
   "devDependencies": {
