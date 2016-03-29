@@ -46,7 +46,7 @@ An `Array` of initial data.
 
 **changes**
 
-A `ChangeStream` to be applied continuosly to the set.
+A `ChangeStream` to be applied continuously to the set.
 
 **options**
 
