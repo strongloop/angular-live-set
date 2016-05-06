@@ -1,3 +1,8 @@
+// Copyright IBM Corp. 2015. All Rights Reserved.
+// Node module: angular-live-set
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
+
 describe('LiveSet', function () {
   'use strict';
 
