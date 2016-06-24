@@ -5,6 +5,7 @@
 
 angular.module('ls.ChangeStream',[]).factory('createChangeStream', ['$rootScope', function($rootScope) {
   function createChangeStream(eventSource, $scope) {
+    var stream = require('stream')
     var str = new stream.PassThrough({objectMode: true});
 
     if(eventSource) {
@@ -34,6 +35,11 @@ angular.module('ls.ChangeStream',[]).factory('createChangeStream', ['$rootScope'
 
   return createChangeStream;
 }]);
+
+// Copyright IBM Corp. 2015. All Rights Reserved.
+// Node module: angular-live-set
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
 
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.stream = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
@@ -4313,6 +4319,11 @@ arguments[4][1][0].apply(exports,arguments)
 arguments[4][11][0].apply(exports,arguments)
 },{"buffer":17,"dup":11}]},{},[1])(1)
 });
+// Copyright IBM Corp. 2015. All Rights Reserved.
+// Node module: angular-live-set
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
+
 angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($rootScope) {
   function LiveSet(data, changes, options) {
     var set = this;

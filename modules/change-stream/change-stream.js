@@ -5,6 +5,7 @@
 
 angular.module('ls.ChangeStream',[]).factory('createChangeStream', ['$rootScope', function($rootScope) {
   function createChangeStream(eventSource, $scope) {
+    var stream = require('stream')
     var str = new stream.PassThrough({objectMode: true});
 
     if(eventSource) {
