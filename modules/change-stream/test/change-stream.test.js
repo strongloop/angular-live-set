@@ -6,9 +6,10 @@
 describe('createChangeStream', function () {
   'use strict';
 
-  // this should be dynamic :(
-  // but how to pass from grunt + karma to tests?
-  var LB_PORT = 4558;
+  // see gulpfile.js where it pipes args to karma
+  // then passes through in the window object
+  /*jslint browser: true*/
+  var LB_PORT = window.__karma__.config.LB_PORT;
 
   var scope, createChangeStream;
 

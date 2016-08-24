@@ -12,7 +12,7 @@ var jshint = require('gulp-jshint');
 
 var DEST = 'dist';
 var SRC_FILES = ['modules/**/*.js', '!modules/**/test/*.js', '!modules/**/demo/*.js'];
-var LB_PORT = 4558;
+var LB_PORT = 0;
 var testServer;
 
 // clean
@@ -44,7 +44,8 @@ gulp.task('test', ['lint', 'test-server'], function() {
     ])
     .pipe(karma({
       configFile: 'test/karma.conf.js',
-      action: 'run'
+      action: 'run',
+      client: {LB_PORT: LB_PORT}
     }))
     .on('error', function(err) {
       // Make sure failed tests cause gulp to exit non-zero
@@ -61,6 +62,7 @@ gulp.task('test', ['lint', 'test-server'], function() {
 
 gulp.task('test-server', function(done) {
   testServer = require('./test/fixtures/event-source')(LB_PORT, done);
+  LB_PORT = testServer.address().port;
 });
 
 gulp.task('lint', function() {
