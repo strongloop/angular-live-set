@@ -21,8 +21,8 @@
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.1",
-    "loopback": "^2.18.0",
-    "loopback-datasource-juggler": "^2.30.1",
+    "loopback": "^3.0.0",
+    "loopback-datasource-juggler": "^3.0.0",
     "mocha": "^3.0.2",
     "phantomjs-prebuilt": "^2.1.12"
   },

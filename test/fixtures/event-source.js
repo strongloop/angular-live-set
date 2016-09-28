@@ -7,11 +7,11 @@ var loopback = require('loopback');
 var app = loopback();
 
 var ds = app.dataSource('db', {connector: 'memory'});
-var Todo = app.model('Todo', {
+var Todo = app.registry.createModel('Todo', {}, {
   base: 'PersistedModel',
-  public: true,
-  dataSource: 'db'
+  public: true
 });
+app.model(Todo, {dataSource: 'db'});
 
 app.use(function(req, res, next) {
   console.log(req.method, req.url);
