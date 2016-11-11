@@ -9,9 +9,9 @@ Display changes as they are made to a collection of objects.
  - AngularJS
  - `ChangeStream` server (eg. LoopBack)
 
-## Usage
+## Use
 
-You can get it from [Bower](http://bower.io/)
+Install Angular Live Set with [Bower](http://bower.io/):
 
 ```sh
 bower install angular-live-set
@@ -29,12 +29,13 @@ Add the module to your dependencies:
 ```javascript
 angular.module('myApp', ['ls.LiveSet', 'ls.ChangeStream'])
 ```
+## Concurrency
 
-## Docs
+`Change` streams are applied in order. This means the set can only be modified synchronously. The last change wins.
 
-### API
+## API
 
-#### LiveSet(data, changes, options)
+### LiveSet(data, changes, options)
 
 A `LiveSet` applies a `ChangeStream`, or a continuous stream of changes, to an array of objects. The set itself is **read only** and can only be modified by sending a change through the change stream.
 
@@ -72,7 +73,7 @@ var set = new LiveSet(data, changes);
 $scope.values = set.toLiveArray();
 ```
 
-#### ChangeStream(eventSource)
+### ChangeStream(eventSource)
 
 ```js
 function MyController($scope, createChangeStream) {
@@ -91,7 +92,7 @@ An `EventSource` emitting the following events:
 
 A continuous stream of `Change` objects. Each `Change` represents a modification to an object. Changes are applied to a set in the order they flow in the stream.
 
-#### Change
+### Change
 
 A chunk in a `ChangeStream`.
 
@@ -125,7 +126,7 @@ In cases like this, it is appropriate to send an "optimistic" change that will b
 immediately applied. These changes should be reverted after a specified period unless
 another (non-optmisitic) change with the same target is written to the `ChangeStream`.
 
-#### Error
+### Error
 
 **error.message**
 
@@ -133,8 +134,4 @@ An error message.
 
 **error.status**
 
-An HTTP like status code.
-
-### Concurrency
-
-`Change` streams are applied in order. This means the set can only be modified synchronously. The last change wins.
+An HTTP-like status code.
