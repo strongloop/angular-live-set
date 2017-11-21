@@ -4331,8 +4331,8 @@ angular.module('ls.LiveSet',[]).factory('LiveSet', ['$rootScope', function($root
     this.options.id = this.options.id || 'id';
     this.options.optimisticWindow = this.options.optimisticWindow || 2000;
 
-    changes.on('readable', function() {
-      var change = changes.read();
+    changes.on('data', function(data) {
+      var change = data;
       if(change) {
         set._applyChange(change);
       }
